@@ -13,6 +13,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <title>Alteração Cidade</title>
     </head>
     <body>
@@ -20,21 +28,21 @@
             String mensagem = "Informe os dados para alteração!";
             Cidade cidade = null;
             Connection conexao = Conexao.getConexao();
-            if(request.getParameter("btnAltera") != null){
-               int codigo = Integer.valueOf(request.getParameter("codigo"));
-               String nome = request.getParameter("nome");
-               String estado = request.getParameter("estado");
-               cidade = new Cidade(codigo, nome, estado);              
-               boolean alterou = CidadeDB.alteraCidade(cidade, conexao);
-               if(alterou){
-                   mensagem = "Cidade alterada com sucesso!";
-               }else{
-                   mensagem = "Não foi possível alterar a cidade!";
-               }
+            if (request.getParameter("btnAltera") != null) {
+                int codigo = Integer.valueOf(request.getParameter("codigo"));
+                String nome = request.getParameter("nome");
+                String estado = request.getParameter("estado");
+                cidade = new Cidade(codigo, nome, estado);
+                boolean alterou = CidadeDB.alteraCidade(cidade, conexao);
+                if (alterou) {
+                    mensagem = "Cidade alterada com sucesso!";
+                } else {
+                    mensagem = "Não foi possível alterar a cidade!";
+                }
             }
             out.println(mensagem);
-            out.println("<br />");         
-            
+            out.println("<br />");
+
             String id = request.getParameter("id");
             int codigo = Integer.valueOf(id);
             cidade = CidadeDB.getCidade(codigo, conexao);
