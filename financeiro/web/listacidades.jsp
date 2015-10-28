@@ -24,14 +24,15 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <title>Lista Cidades</title>
     </head>
-    <body>       
+    <body>
+        <div class="container">
         <a href="index.html" target="_parent">Voltar</a>
         <a href="inserircidade.jsp" target="_parent">Nova</a>
         <h1>Lista de cidades</h1>
         <%
             Connection conexao = Conexao.getConexao();
             ArrayList lista = CidadeDB.getListaCidades(conexao);
-            out.println("<table border=\"1\">");
+            out.println("<table class=\"table-responsive\" border=\"1\">");
             out.println("<tr>");
             out.println("<td>Código</td>");
             out.println("<td>Nome</td>");
@@ -52,6 +53,6 @@
             }
             out.println("</table>");
         %>
-
+        </div>
     </body>
 </html>

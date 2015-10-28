@@ -24,6 +24,7 @@
         <title>Alteração Cidade</title>
     </head>
     <body>
+        <div class="container">
         <%
             String mensagem = "Informe os dados para alteração!";
             Cidade cidade = null;
@@ -57,5 +58,6 @@
             <input type="hidden" name="codigo" value="<%=id%>"/>
             <input type="submit" name="btnAltera" value="Alterar"/>
         </form>
+        </div>
     </body>
 </html>

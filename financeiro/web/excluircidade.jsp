@@ -24,6 +24,7 @@
         <title>Excluir Cidade</title>
     </head>
     <body>
+        <div class="container">
         <%
             String mensagem = "";
             Connection conexao = Conexao.getConexao();
@@ -55,5 +56,6 @@
             <input type="hidden" name="codigo" value="<%= id%>"/>
             <input type="submit" name="btnexclui" value="Excluir"/>
         </form>
+        </div>
     </body>
 </html>

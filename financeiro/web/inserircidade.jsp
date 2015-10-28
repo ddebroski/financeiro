@@ -24,6 +24,7 @@
         <title>Nova Cidade</title>
     </head>
     <body>
+        <div class="container">
         <%
             String mensagem = "Informe os dados para nova cidade!";
             if (request.getParameter("btnEnviar") != null) {
@@ -54,5 +55,6 @@
             <br/>
             <input type="submit" name="btnEnviar" value="Enviar"/>
         </form>
+        </div>
     </body>
 </html>
