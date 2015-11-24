@@ -17,10 +17,32 @@ and open the template in the editor.
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="container">
-        <div>Menu</div>
-        <br />
-        <a href="listacidades.jsp" target="_parent">Cidades</a>
-        </div>
+        <ul class="nav nav-pills">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cidade<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="inserircidade.jsp">Cadastrar Cidade</a></li>
+                    <li><a href="listacidades.jsp">Listar Cidade</a></li>
+                    <li><a href="alterarcidade.jsp">Alterar Cidade</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pessoa<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="inserircidade.jsp">Cadastrar Pessoa</a></li>
+                    <li><a href="listacidades.jsp">Listar Pessoa</a></li>
+                    <li><a href="alterarcidade.jsp">Alterar Pessoa</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Conta<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="inserircidade.jsp">Cadastrar Conta</a></li>
+                    <li><a href="listacidades.jsp">Listar Conta</a></li>
+                    <li><a href="alterarcidade.jsp">Alterar Conta</a></li>
+                </ul>
+            </li>
+        </ul>
     </body>
 </html>

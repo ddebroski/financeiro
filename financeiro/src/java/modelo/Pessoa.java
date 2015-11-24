@@ -24,6 +24,10 @@ public class Pessoa {
         this.cid_codigo = cid_codigo;
     }
 
+    public Pessoa(String auxNome, String auxIdade, String auxEmail) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getPes_codigo() {
         return pes_codigo;
     }
