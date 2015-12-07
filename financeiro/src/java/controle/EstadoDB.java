@@ -94,4 +94,22 @@ public class EstadoDB {
         }
     }
     
+        public static Estado getEstado(String sigla, Connection conexao){
+        Estado estado = null;
+        try{
+            PreparedStatement ps = conexao.prepareStatement("select * from estado where est_sigla = ?");
+            ps.setString(1, sigla);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                String auxSigla = rs.getString("est_sigla");
+                String auxNome = rs.getString("nome");
+                estado = new Estado(auxSigla, auxNome);
+            }
+        }catch(SQLException e){
+            System.out.println("Erro de sql: " + e.getMessage());
+        }finally{
+            return estado;
+        }
+    }
+    
 }
