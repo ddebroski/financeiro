@@ -13,10 +13,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Pessoa;
 
-/**
- *
- * @author aluno
- */
 public class PessoaDB {
     public static ArrayList getListaPessoa(Connection conexao){
         ArrayList lista = new ArrayList();

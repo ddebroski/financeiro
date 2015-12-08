@@ -18,13 +18,18 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
     <body>       
-        <a href="index.html" target="_parent">Voltar</a>
+        <ul class="nav nav-pills">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="dropdown-toggle" href="listacidades.jsp">Cidade</a></li>
+            <li class="active"><a class="dropdown-toggle"  href="listapessoa.jsp">Pessoa</a></li>
+            <li><a class="dropdown-toggle"  href="listaconta.jsp">Conta</a></li>
+        </ul>
         <a href="inserirpessoa.jsp" target="_parent">Nova</a>
         <h1>Lista de cidades</h1>
         <%
             Connection conexao = Conexao.getConexao();
             ArrayList lista = PessoaDB.getListaPessoa(conexao);
-            out.println("<table border=\"1\">");
+            out.println("<table border=\"1\" class=\"table table-striped\">");
             out.println("<tr>");
             out.println("<td>Código</td>");
             out.println("<td>Nome</td>");
