@@ -1,13 +1,7 @@
-<%-- 
-    Document   : inserircidade
-    Created on : 19/08/2015, 20:14:57
-    Author     : djonata
---%>
-
-<%@page import="controle.CidadeDB"%>
+<%@page import="controle.ContaDB"%>
 <%@page import="controle.Conexao"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="modelo.Cidade"%>
+<%@page import="modelo.Conta"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,32 +11,34 @@
     </head>
     <body>
          <%
-            String mensagem = "Informe os dados para nova cidade!";
+            String mensagem = "Informe os dados da conta!";
             if(request.getParameter("btnEnviar") != null){
-                int codigo = Integer.valueOf(request.getParameter("codigo"));
-                String nome = request.getParameter("nome");
-                String estado = request.getParameter("estado");
-                Cidade cidade = new Cidade(codigo, nome, estado);
+                String descricao = request.getParameter("descricao");
+                String data = request.getParameter("data");
+                String valor = request.getParameter("valor");
+                String tipo = request.getParameter("tipo");
+                String situacao = request.getParameter("situacao");
+                String pes_codigo = request.getParameter("pes_codigo");
+                Conta conta = new conta(descricao, data, valor, tipo, situacao, pes_codigo);
                 Connection conexao = Conexao.getConexao();
-                boolean incluiu = CidadeDB.incluiCidade(cidade, conexao);
+                boolean incluiu = ContaDB.incluiConta(conta, conexao);
                 if (incluiu){
-                    mensagem = "Cidade incluida com sucesso!";
+                    mensagem = "Conta incluida com sucesso!";
                             }else{
-                    mensagem = "Erro ao incluir a cidade!";
+                    mensagem = "Erro ao incluir a conta!";
                                   }
             }
             
             out.println(mensagem);
             out.println("<br/>");
         %>
-        <a href="listacidades.jsp" target="_parent">Voltar</a>
         <h1>Inserir Nova Cidade</h1>
         <form name="fmrCidade" method="post">
-            Código: <input type="text" name="codigo" maxlength="10" size="8"/>
+            Descrição: <input type="text" name="descricao" maxlength="100" size="80"/>
             <br/>
-            Nome: <input type="text" name="nome" maxlength="100" size="80"/>
+            Data: <input type="text" name="estado" maxlength="2" size="3"/>
             <br/>
-            Estado: <input type="text" name="estado" maxlength="2" size="3"/>
+            Valor: <input type="text" name="estado" maxlength="2" size="3"/>
             <br/>
             <input type="submit" name="btnEnviar" value="Enviar"/>
         </form>

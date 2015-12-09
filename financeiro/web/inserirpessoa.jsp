@@ -13,10 +13,10 @@
          <%
             String mensagem = "Informe os dados para uma nova Pessoa!";
             if(request.getParameter("btnEnviar") != null){
-                int pes_codigo = Integer.valueOf(request.getParameter("pes_codigo"));
+                int codigo = Integer.valueOf(request.getParameter("pes_codigo"));
                 String nome = request.getParameter("nome");
                 String email = request.getParameter("email");
-                Pessoa pessoa = new Pessoa(pes_codigo, nome,email);
+                Pessoa pessoa = new Pessoa(codigo, nome,email,idade);
                 Connection conexao = Conexao.getConexao();
                 boolean incluiu = PessoaDB.incluiPessoa(pessoa, conexao);
                 if (incluiu){
@@ -25,14 +25,13 @@
                     mensagem = "Erro ao incluir a Pessoa!";
                                   }
             }
-            
             out.println(mensagem);
             out.println("<br/>");
         %>
         <a href="listapessoa.jsp" target="_parent">Voltar</a>
         <h1>Inserir Nova Cidade</h1>
         <form name="fmrPessoa" method="post">
-            Código: <input type="text" name="pes_codigo" maxlength="10" size="8"/>
+            Código: <input type="text" name="codigo" maxlength="10" size="8"/>
             <br/>
             Nome: <input type="text" name="nome" maxlength="100" size="80"/>
             <br/>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : inserircidade
-    Created on : 19/08/2015, 20:14:57
-    Author     : djonata
---%>
-
 <%@page import="controle.CidadeDB"%>
 <%@page import="controle.Conexao"%>
 <%@page import="java.sql.Connection"%>
@@ -12,26 +6,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nova Cidade</title>
+        <title>Controle Financeiro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
     <body>
-         <%
+        <%
             String mensagem = "Informe os dados para nova cidade!";
-            if(request.getParameter("btnEnviar") != null){
+            if (request.getParameter("btnEnviar") != null) {
                 int codigo = Integer.valueOf(request.getParameter("codigo"));
                 String nome = request.getParameter("nome");
                 String estado = request.getParameter("estado");
                 Cidade cidade = new Cidade(codigo, nome, estado);
                 Connection conexao = Conexao.getConexao();
                 boolean incluiu = CidadeDB.incluiCidade(cidade, conexao);
-                if (incluiu){
+                if (incluiu) {
                     mensagem = "Cidade incluida com sucesso!";
-                            }else{
+                } else {
                     mensagem = "Erro ao incluir a cidade!";
-                                  }
+                }
             }
-            
+
             out.println(mensagem);
             out.println("<br/>");
         %>

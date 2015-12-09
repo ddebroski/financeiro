@@ -22,7 +22,7 @@
             <li><a href="index.html">Home</a></li>
             <li class="active"><a class="dropdown-toggle" href="listacidades.jsp">Cidade</a></li>
             <li><a class="dropdown-toggle"  href="listapessoa.jsp">Pessoa</a></li>
-            <li><a class="dropdown-toggle"  href="listaconta.jsp">Conta</a></li>
+            <li><a class="dropdown-toggle"  href="listaconta.jsp">Contas</a></li>
         </ul>
         <a href="inserircidade.jsp" target="_parent">Nova</a>
         <h1>Lista de cidades</h1>
